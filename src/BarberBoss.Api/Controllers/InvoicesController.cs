@@ -1,4 +1,5 @@
-﻿using BarberBoss.Communication.Requests;
+﻿using BarberBoss.Application.UseCases.Invoices.Register;
+using BarberBoss.Communication.Requests;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BarberBoss.Api.Controllers
@@ -10,7 +11,10 @@ namespace BarberBoss.Api.Controllers
         [HttpPost]
         public IActionResult Register([FromBody] RequestRegisterInvoiceJson request)
         {
-            return Created();
+            var useCase = new RegisterInvoiceUseCase();
+            var response = useCase.Execute(request);
+
+            return Created(string.Empty, response);
         }
     }
 }
