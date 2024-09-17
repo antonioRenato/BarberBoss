@@ -1,4 +1,5 @@
-﻿using BarberBoss.Communication.Requests;
+﻿using BarberBoss.Communication.Enums;
+using BarberBoss.Communication.Requests;
 using BarberBoss.Communication.Responses;
 
 namespace BarberBoss.Application.UseCases.Invoices.Register
@@ -19,6 +20,14 @@ namespace BarberBoss.Application.UseCases.Invoices.Register
 
             if (request.Amount <= 0)
                 throw new ArgumentException("The amount must be greater than zero");
+
+            var result = DateTime.Compare(request.Date, DateTime.UtcNow);
+            if (result > 0)
+                throw new ArgumentException("The date is in the future");
+
+            var paymentTypeIsValid = Enum.IsDefined(typeof(PaymentType), request.PaymentType);
+            if (!paymentTypeIsValid)
+                throw new ArgumentException("Payment type is not valid");
         }
     }
 }
