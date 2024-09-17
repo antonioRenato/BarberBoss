@@ -1,5 +1,6 @@
 ﻿using BarberBoss.Application.UseCases.Invoices.Register;
 using BarberBoss.Communication.Requests;
+using BarberBoss.Communication.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BarberBoss.Api.Controllers
@@ -11,10 +12,32 @@ namespace BarberBoss.Api.Controllers
         [HttpPost]
         public IActionResult Register([FromBody] RequestRegisterInvoiceJson request)
         {
-            var useCase = new RegisterInvoiceUseCase();
-            var response = useCase.Execute(request);
+            try
+            {
+                var useCase = new RegisterInvoiceUseCase();
+                var response = useCase.Execute(request);
 
-            return Created(string.Empty, response);
+                return Created(string.Empty, response);
+            }
+            catch (ArgumentException ex)
+            {
+                var errorResponse = new ResponseErrorJson
+                { 
+                    ErrorMessage = ex.Message 
+                };
+                
+                return BadRequest(errorResponse);
+            }
+            catch
+            {
+                var errorResponse = new ResponseErrorJson
+                {
+                    ErrorMessage = "unkown error"
+                };
+
+                return StatusCode(StatusCodes.Status500InternalServerError, errorResponse);
+            }
+            
         }
     }
 }
