@@ -1,6 +1,8 @@
 ﻿using BarberBoss.Communication.Enums;
 using BarberBoss.Communication.Requests;
 using BarberBoss.Communication.Responses;
+using BarberBoss.Exception.ExceptionsBase;
+using FluentValidation;
 
 namespace BarberBoss.Application.UseCases.Invoices.Register
 {
@@ -15,19 +17,15 @@ namespace BarberBoss.Application.UseCases.Invoices.Register
 
         private void Validate(RequestRegisterInvoiceJson request)
         {
-            if (string.IsNullOrWhiteSpace(request.Title))
-                throw new ArgumentException("The title is required!");
+            var validator = new RegisterInvoiceValidator();
+            var result = validator.Validate(request);
 
-            if (request.Amount <= 0)
-                throw new ArgumentException("The amount must be greater than zero");
+            if (!result.IsValid)
+            {
+                var errorMessages = result.Errors.Select(x => x.ErrorMessage).ToList();
 
-            var result = DateTime.Compare(request.Date, DateTime.UtcNow);
-            if (result > 0)
-                throw new ArgumentException("The date is in the future");
-
-            var paymentTypeIsValid = Enum.IsDefined(typeof(PaymentType), request.PaymentType);
-            if (!paymentTypeIsValid)
-                throw new ArgumentException("Payment type is not valid");
+                throw new ErrorBaseException(errorMessages);
+            }
         }
     }
 }

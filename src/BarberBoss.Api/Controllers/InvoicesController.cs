@@ -1,6 +1,7 @@
 ﻿using BarberBoss.Application.UseCases.Invoices.Register;
 using BarberBoss.Communication.Requests;
 using BarberBoss.Communication.Responses;
+using BarberBoss.Exception.ExceptionsBase;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BarberBoss.Api.Controllers
@@ -19,21 +20,15 @@ namespace BarberBoss.Api.Controllers
 
                 return Created(string.Empty, response);
             }
-            catch (ArgumentException ex)
+            catch (ErrorBaseException ex)
             {
-                var errorResponse = new ResponseErrorJson
-                { 
-                    ErrorMessage = ex.Message 
-                };
+                var errorResponse = new ResponseErrorJson(ex.Errors);
                 
                 return BadRequest(errorResponse);
             }
             catch
             {
-                var errorResponse = new ResponseErrorJson
-                {
-                    ErrorMessage = "unkown error"
-                };
+                var errorResponse = new ResponseErrorJson("unkown error");
 
                 return StatusCode(StatusCodes.Status500InternalServerError, errorResponse);
             }
