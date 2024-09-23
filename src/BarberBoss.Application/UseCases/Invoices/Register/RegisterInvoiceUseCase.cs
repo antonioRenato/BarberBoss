@@ -15,7 +15,7 @@ namespace BarberBoss.Application.UseCases.Invoices.Register
             return new ResponseRegisterInvoiceJson();
         }
 
-        private void Validate(RequestRegisterInvoiceJson request)
+        public void Validate(RequestRegisterInvoiceJson request)
         {
             var validator = new RegisterInvoiceValidator();
             var result = validator.Validate(request);

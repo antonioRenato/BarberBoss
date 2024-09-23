@@ -7,17 +7,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6C858E28-5E2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4CBE39B3-8ECF-47DB-ACDB-BB8AEA8EA415}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Api", "src\BarberBoss.Api\BarberBoss.Api.csproj", "{9F940C3F-4A74-4823-A713-1A71F3724C79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarberBoss.Api", "src\BarberBoss.Api\BarberBoss.Api.csproj", "{9F940C3F-4A74-4823-A713-1A71F3724C79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Domain", "src\BarberBoss.Domain\BarberBoss.Domain.csproj", "{F5078578-CDF8-4F8A-9FFD-BCD19636F786}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarberBoss.Domain", "src\BarberBoss.Domain\BarberBoss.Domain.csproj", "{F5078578-CDF8-4F8A-9FFD-BCD19636F786}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Application", "src\BarberBoss.Application\BarberBoss.Application.csproj", "{25486A83-6C4E-4944-ABFD-78A673615BDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarberBoss.Application", "src\BarberBoss.Application\BarberBoss.Application.csproj", "{25486A83-6C4E-4944-ABFD-78A673615BDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Communication", "src\BarberBoss.Communication\BarberBoss.Communication.csproj", "{7C30CF95-4C44-4FB1-9920-2A720C19D023}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarberBoss.Communication", "src\BarberBoss.Communication\BarberBoss.Communication.csproj", "{7C30CF95-4C44-4FB1-9920-2A720C19D023}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Exception", "src\BarberBoss.Exception\BarberBoss.Exception.csproj", "{E70A6CE8-D102-4253-B2AB-7067CDEF6059}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarberBoss.Exception", "src\BarberBoss.Exception\BarberBoss.Exception.csproj", "{E70A6CE8-D102-4253-B2AB-7067CDEF6059}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Infrastructure", "src\BarberBoss.Infrastructure\BarberBoss.Infrastructure.csproj", "{96BFB98C-7F45-4D5C-91E4-055AE6415258}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarberBoss.Infrastructure", "src\BarberBoss.Infrastructure\BarberBoss.Infrastructure.csproj", "{96BFB98C-7F45-4D5C-91E4-055AE6415258}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validators.Tests", "tests\Validators.Tests\Validators.Tests.csproj", "{3E225207-3B5C-47FE-AF68-9EAE241B65D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{96BFB98C-7F45-4D5C-91E4-055AE6415258}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96BFB98C-7F45-4D5C-91E4-055AE6415258}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96BFB98C-7F45-4D5C-91E4-055AE6415258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E225207-3B5C-47FE-AF68-9EAE241B65D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E225207-3B5C-47FE-AF68-9EAE241B65D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E225207-3B5C-47FE-AF68-9EAE241B65D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E225207-3B5C-47FE-AF68-9EAE241B65D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{7C30CF95-4C44-4FB1-9920-2A720C19D023} = {6C858E28-5E21-4BB6-97F9-6861BA34923B}
 		{E70A6CE8-D102-4253-B2AB-7067CDEF6059} = {6C858E28-5E21-4BB6-97F9-6861BA34923B}
 		{96BFB98C-7F45-4D5C-91E4-055AE6415258} = {6C858E28-5E21-4BB6-97F9-6861BA34923B}
+		{3E225207-3B5C-47FE-AF68-9EAE241B65D7} = {4CBE39B3-8ECF-47DB-ACDB-BB8AEA8EA415}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3AB55C81-6AAD-490A-B50C-A143D97A70C0}
